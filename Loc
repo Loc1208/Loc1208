@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lời Tỏ Tình Dễ Thương</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(#ffdde1, #ee9ca7);
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .falling-text, .heart {
+      position: absolute;
+      animation: fall 8s linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    .heart {
+      color: red;
+      font-size: 24px;
+      animation-duration: 6s;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const messages = [
+    "Anh yêu em 💕",
+    "Anh yêu em lómmmm 💖",
+    "Choa anh cưới emm nhaa 💓",
+    "Lọt ❤ Yến",
+    "Em hăm bao giờ được buồn nhaaaa 💖",
+    "Em là cả thế giới cụa anh đóa ❤️",
+    "Anh muốn bắt em về nuôi quooo 💘",
+    "Bé ieuuu oiiii ❤",
+    "Em là cụa riêng anh thuiii",
+    "Anh nhớ em nhiều lómmm",
+    "Mih yêu nhauu thậtt lâu nhaaaa vo",
+    "Thơm cáiiiii",
+    "Vợ cóa ieuuu anh hămmm",
+    "Anh ieuuu voo nhiều lómmmm"
+  ];
+
+  function createMessage(text) {
+    const msg = document.createElement('div');
+    msg.className = 'falling-text';
+    msg.textContent = text;
+    msg.style.left = Math.random() * 90 + '%';
+    msg.style.top = '-50px';
+    msg.style.fontSize = (16 + Math.random() * 10) + 'px';
+    document.body.appendChild(msg);
+
+    setTimeout(() => msg.remove(), 10000);
+  }
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '❤️💗💖💓';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.top = '-30px';
+    heart.style.fontSize = (20 + Math.random() * 20) + 'px';
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+  }
+
+  setInterval(() => {
+    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+    createMessage(randomMsg);
+  }, 700);
+
+  setInterval(() => {
+    createHeart();
+  }, 500);
+</script>
+
+</body>
+</html>
